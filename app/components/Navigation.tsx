@@ -127,7 +127,7 @@ export default function Navigation() {
       >
         <div className="relative h-full border-t border-cyan-500/20">
           <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
-          <div className="relative flex flex-col p-8 gap-6">
+          <div className="relative flex flex-col p-8 gap-6 bg-slate-900/95 backdrop-blur-md rounded-lg mx-4 mt-6 border border-cyan-500/30 shadow-2xl shadow-cyan-500/20">
             <Link
               href="/"
               onClick={() => setIsMenuOpen(false)}
@@ -145,7 +145,7 @@ export default function Navigation() {
             
             {/* Mobile Music Section */}
             <div className="border-b border-cyan-500/20 pb-3">
-              <div className="text-cyan-400 font-bold uppercase text-xl tracking-wider mb-3">
+              <div className=" text-slate-300 hover:text-cyan-400 font-bold uppercase text-xl tracking-wider mb-3">
                 Music
               </div>
               <div className="flex flex-col gap-3 pl-4">
