@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,17 +15,14 @@ export default function Navigation() {
         {/* Logo on the left */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center group select-none">
-            <div className="relative">
-              <div className="absolute inset-0 blur-lg bg-cyan-500/20 group-hover:bg-cyan-500/30 transition-all pointer-events-none" />
-              <Image
-                src="/StaffordMusic.png"
-                alt="Stafford Music"
-                width={480}
-                height={96}
-                className="h-32 w-auto relative z-10 select-none"
-                priority
-              />
-            </div>
+            <Image
+              src="/StaffordMusicLogo.png"
+              alt="Stafford Music"
+              width={480}
+              height={90}
+              className="h-40 w-auto select-none transition-all duration-300 group-hover:brightness-100 group-hover:drop-shadow-[0_0_8px_rgba(30,100,180,0.6)]"
+              priority
+            />
           </Link>
         </div>
 
@@ -31,22 +30,32 @@ export default function Navigation() {
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="/"
-            className="text-slate-300 hover:text-cyan-400 transition-all duration-300 font-semibold uppercase text-base tracking-wider relative group"
+            className={`transition-all duration-300 font-semibold uppercase text-base tracking-wider relative group ${
+              pathname === '/' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+            }`}
           >
             <span className="relative z-10">Home</span>
-            <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform" />
+            <span className={`absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent transition-transform ${
+              pathname === '/' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+            }`} />
           </Link>
           <Link
             href="/about"
-            className="text-slate-300 hover:text-cyan-400 transition-all duration-300 font-semibold uppercase text-base tracking-wider relative group"
+            className={`transition-all duration-300 font-semibold uppercase text-base tracking-wider relative group ${
+              pathname === '/about' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+            }`}
           >
             <span className="relative z-10">About</span>
-            <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform" />
+            <span className={`absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent transition-transform ${
+              pathname === '/about' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+            }`} />
           </Link>
           
           {/* Music Dropdown */}
           <div className="relative group">
-            <button className="text-slate-300 hover:text-cyan-400 transition-all duration-300 font-semibold uppercase text-base tracking-wider flex items-center gap-1">
+            <button className={`transition-all duration-300 font-semibold uppercase text-base tracking-wider flex items-center gap-1 ${
+              pathname === '/listen' || pathname === '/credits' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+            }`}>
               <span className="relative z-10">Music</span>
               <svg
                 className="w-4 h-4 transition-transform group-hover:rotate-180 duration-300"
@@ -61,7 +70,9 @@ export default function Navigation() {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-              <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform" />
+              <span className={`absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent transition-transform ${
+                pathname === '/listen' || pathname === '/credits' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+              }`} />
             </button>
             
             {/* Dropdown Menu */}
@@ -69,13 +80,17 @@ export default function Navigation() {
               <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/10 to-transparent pointer-events-none" />
               <Link
                 href="/listen"
-                className="relative block px-6 py-3 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-200 border-b border-cyan-500/20 uppercase text-sm tracking-wide font-semibold"
+                className={`relative block px-6 py-3 hover:bg-cyan-500/10 transition-all duration-200 border-b border-cyan-500/20 uppercase text-sm tracking-wide font-semibold ${
+                  pathname === '/listen' ? 'text-cyan-400 bg-cyan-500/10' : 'text-slate-300 hover:text-cyan-300'
+                }`}
               >
                 Listen
               </Link>
               <Link
                 href="/credits"
-                className="relative block px-6 py-3 text-slate-300 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-200 uppercase text-sm tracking-wide font-semibold"
+                className={`relative block px-6 py-3 hover:bg-cyan-500/10 transition-all duration-200 uppercase text-sm tracking-wide font-semibold ${
+                  pathname === '/credits' ? 'text-cyan-400 bg-cyan-500/10' : 'text-slate-300 hover:text-cyan-300'
+                }`}
               >
                 Credits
               </Link>
@@ -85,7 +100,9 @@ export default function Navigation() {
           {/* Contact Button */}
           <Link
             href="/contact"
-            className="relative px-6 py-2.5 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold uppercase text-sm tracking-wider overflow-hidden group angular-cut"
+            className={`relative px-6 py-2.5 text-white font-bold uppercase text-sm tracking-wider overflow-hidden group angular-cut ${
+              pathname === '/contact' ? 'bg-gradient-to-r from-cyan-500 to-blue-500' : 'bg-gradient-to-r from-cyan-600 to-blue-600'
+            }`}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute inset-0 bg-cyan-500/20 blur-xl group-hover:bg-cyan-500/40 transition-all" />
@@ -131,35 +148,45 @@ export default function Navigation() {
             <Link
               href="/"
               onClick={() => setIsMenuOpen(false)}
-              className="text-slate-300 hover:text-cyan-400 transition-all duration-300 font-bold uppercase text-2xl tracking-wider py-3 border-b border-cyan-500/20"
+              className={`transition-all duration-300 font-bold uppercase text-2xl tracking-wider py-3 border-b border-cyan-500/20 ${
+                pathname === '/' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+              }`}
             >
               Home
             </Link>
             <Link
               href="/about"
               onClick={() => setIsMenuOpen(false)}
-              className="text-slate-300 hover:text-cyan-400 transition-all duration-300 font-bold uppercase text-2xl tracking-wider py-3 border-b border-cyan-500/20"
+              className={`transition-all duration-300 font-bold uppercase text-2xl tracking-wider py-3 border-b border-cyan-500/20 ${
+                pathname === '/about' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+              }`}
             >
               About
             </Link>
             
             {/* Mobile Music Section */}
             <div className="border-b border-cyan-500/20 pb-3">
-              <div className=" text-slate-300 hover:text-cyan-400 font-bold uppercase text-xl tracking-wider mb-3">
+              <div className={`font-bold uppercase text-xl tracking-wider mb-3 ${
+                pathname === '/listen' || pathname === '/credits' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+              }`}>
                 Music
               </div>
               <div className="flex flex-col gap-3 pl-4">
                 <Link
                   href="/listen"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-slate-300 hover:text-cyan-400 transition-all duration-300 font-semibold uppercase text-lg tracking-wide"
+                  className={`transition-all duration-300 font-semibold uppercase text-lg tracking-wide ${
+                    pathname === '/listen' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+                  }`}
                 >
                   Listen
                 </Link>
                 <Link
                   href="/credits"
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-slate-300 hover:text-cyan-400 transition-all duration-300 font-semibold uppercase text-lg tracking-wide"
+                  className={`transition-all duration-300 font-semibold uppercase text-lg tracking-wide ${
+                    pathname === '/credits' ? 'text-cyan-400' : 'text-slate-300 hover:text-cyan-300'
+                  }`}
                 >
                   Credits
                 </Link>
@@ -170,7 +197,9 @@ export default function Navigation() {
             <Link
               href="/contact"
               onClick={() => setIsMenuOpen(false)}
-              className="relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold uppercase text-lg tracking-wider text-center angular-cut mt-4"
+              className={`relative px-8 py-4 text-white font-bold uppercase text-lg tracking-wider text-center angular-cut mt-4 ${
+                pathname === '/contact' ? 'bg-gradient-to-r from-cyan-500 to-blue-500' : 'bg-gradient-to-r from-cyan-600 to-blue-600'
+              }`}
             >
               <span className="relative z-10">Contact</span>
             </Link>

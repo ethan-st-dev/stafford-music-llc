@@ -1,6 +1,14 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import HeroSlideshow from './components/HeroSlideshow';
 
 export default function Home() {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isGalleryButtonVisible, setIsGalleryButtonVisible] = useState(true);
+  const heroSectionRef = useRef<HTMLElement>(null);
+  
   // Add your Stafford Music LLC images here
   const heroImages = [
     '/Gallery/1.jpg',
@@ -9,24 +17,124 @@ export default function Home() {
     // Add more images as needed
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Hide button when less than 50% of hero section is visible
+        setIsGalleryButtonVisible(entry.intersectionRatio > 0.5);
+      },
+      {
+        threshold: [0, 0.5, 1], // Check at key points
+      }
+    );
+
+    const currentRef = heroSectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
   return (
     <div className="relative">
+      {/* Fixed Gallery Button - follows scroll */}
+      <button
+        onClick={() => {
+          setIsGalleryOpen(true);
+          setCurrentImageIndex(0);
+        }}
+        className="fixed bottom-8 left-8 z-40 p-3 bg-slate-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg hover:bg-slate-800/90 hover:border-cyan-500/50 group transition-opacity duration-1000"
+        style={{ 
+          opacity: isGalleryButtonVisible ? 1 : 0,
+          pointerEvents: isGalleryButtonVisible ? 'auto' : 'none'
+        }}
+        aria-label="View Gallery"
+      >
+        <svg className="w-6 h-6 text-cyan-400 group-hover:text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      </button>
+      
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section ref={heroSectionRef} className="relative overflow-hidden">
         {/* Slideshow Background */}
         <HeroSlideshow images={heroImages} interval={5000} />
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
+        {/* Gallery Modal */}
+        {isGalleryOpen && (
+          <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+            <button
+              onClick={() => setIsGalleryOpen(false)}
+              className="absolute top-4 right-4 p-2 text-white hover:text-cyan-400 transition-colors"
+              aria-label="Close Gallery"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <button
+              onClick={prevImage}
+              className="absolute left-4 p-3 text-white hover:text-cyan-400 bg-slate-900/50 rounded-full transition-colors"
+              aria-label="Previous Image"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <div className="max-w-6xl max-h-[90vh] px-16">
+              <img
+                src={heroImages[currentImageIndex]}
+                alt={`Gallery image ${currentImageIndex + 1}`}
+                className="max-w-full max-h-[90vh] object-contain"
+              />
+              <p className="text-center text-slate-400 mt-4">
+                {currentImageIndex + 1} / {heroImages.length}
+              </p>
+            </div>
+            
+            <button
+              onClick={nextImage}
+              className="absolute right-4 p-3 text-white hover:text-cyan-400 bg-slate-900/50 rounded-full transition-colors"
+              aria-label="Next Image"
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        )}
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-40">
           <div className="text-center">
             {/* Epic title with glow */}
-            <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 via-cyan-400 to-blue-500 mb-6 glow-text uppercase tracking-tight">
-              Stafford Music
-            </h1>
-            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-cyan-500 to-transparent mb-8" />
+            <div className="flex justify-center mt-20 mb-10">
+              <img 
+                src="/StaffordMusic2.png" 
+                alt="Stafford Music" 
+                className="h-80 md:h-80 w-auto logo-glow select-none"
+              />
+            </div>
+            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-cyan-500 to-transparent mb-6" />
             <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
               Experience sound that transcends boundaries. Immerse yourself in a world of epic compositions and cinematic soundscapes.
             </p>
-            <div className="flex gap-6 justify-center flex-wrap">
+            
+            <div className="flex gap-6 justify-center flex-wrap items-center">
               <a
                 href="/listen"
                 className="group relative px-10 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold uppercase text-sm tracking-widest overflow-hidden angular-cut"

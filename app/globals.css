@@ -28,6 +28,20 @@ body {
   text-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3);
 }
 
+.logo-glow {
+  filter: drop-shadow(0 0 15px rgba(30, 100, 180, 0.4)) drop-shadow(0 0 30px rgba(30, 100, 180, 0.25));
+  animation: subtleGlow 4s ease-in-out infinite;
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(30, 100, 180, 0.4)) drop-shadow(0 0 30px rgba(30, 100, 180, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(30, 100, 180, 0.65)) drop-shadow(0 0 45px rgba(30, 100, 180, 0.45));
+  }
+}
+
 .glow-border {
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), inset 0 0 20px rgba(0, 212, 255, 0.1);
 }
