@@ -16,11 +16,11 @@ export default function Navigation() {
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center group select-none">
             <Image
-              src="/StaffordMusicLogo.png"
+              src="/StaffordMusicLogo2.png"
               alt="Stafford Music"
-              width={480}
-              height={90}
-              className="h-40 w-auto select-none transition-all duration-300 group-hover:brightness-100 group-hover:drop-shadow-[0_0_8px_rgba(30,100,180,0.6)]"
+              width={100}
+              height={40}
+              className="h-17 w-auto select-none transition-all duration-700 drop-shadow-[0_0_12px_rgba(30,100,180,0.5)] group-hover:brightness-105 group-hover:drop-shadow-[0_0_18px_rgba(30,100,180,0.7)]"
               priority
             />
           </Link>

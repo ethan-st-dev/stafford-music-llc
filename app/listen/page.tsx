@@ -1,8 +1,12 @@
 import ListPlayer from '../components/ListPlayer';
+import MusicVisualizer from '../components/MusicVisualizer';
 
 export default function Listen() {
   return (
     <div className="relative min-h-screen bg-slate-950">
+      {/* 3D Music Visualizer Background */}
+      <MusicVisualizer />
+      
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(0,212,255,0.1)_0%,_transparent_50%)]" />
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
