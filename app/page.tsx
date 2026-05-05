@@ -1,11 +1,20 @@
+import HeroSlideshow from './components/HeroSlideshow';
+
 export default function Home() {
+  // Add your Stafford Music LLC images here
+  const heroImages = [
+    '/Gallery/1.jpg',
+    '/Gallery/2.jpg',
+    '/Gallery/3.jpg',
+    // Add more images as needed
+  ];
+
   return (
     <div className="relative">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        {/* Dramatic background with gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,212,255,0.15)_0%,_transparent_70%)]" />
+        {/* Slideshow Background */}
+        <HeroSlideshow images={heroImages} interval={5000} />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
           <div className="text-center">
