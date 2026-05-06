@@ -204,27 +204,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Values Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              { title: 'Innovation', desc: 'Pushing boundaries with every creation' },
-              { title: 'Excellence', desc: 'Uncompromising quality in every note' },
-              { title: 'Passion', desc: 'Driven by love for the art' },
-              { title: 'Community', desc: 'Building connections through music' },
-            ].map((value, i) => (
-              <div
-                key={i}
-                className="relative bg-gradient-to-br from-slate-900 to-slate-950 p-6 border border-cyan-500/20 hover:border-cyan-500/50 transition-all card-glow angular-cut group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <h3 className="relative text-xl font-bold text-cyan-400 mb-2 uppercase tracking-wide">
-                  {value.title}
-                </h3>
-                <p className="relative text-slate-400">{value.desc}</p>
-              </div>
-            ))}
-          </div>
-
           {/* Contact Section */}
           <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-10 border border-cyan-500/20 angular-cut card-glow">
             <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
