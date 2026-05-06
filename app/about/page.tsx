@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function About() {
   return (
     <div className="relative min-h-screen bg-slate-950">
@@ -28,17 +30,177 @@ export default function About() {
             </div>
           </div>
 
-          {/* Our Story Section */}
+          {/* Composers Section */}
           <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-10 border border-cyan-500/20 angular-cut card-glow">
             <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
             <div className="relative">
-              <h2 className="text-3xl font-bold text-cyan-400 mb-6 uppercase tracking-wide flex items-center gap-3">
+              <h2 className="text-3xl font-bold text-cyan-400 mb-8 uppercase tracking-wide flex items-center gap-3">
                 <span className="w-2 h-8 bg-gradient-to-b from-cyan-500 to-blue-500" />
-                Our Story
+                The Composers
               </h2>
-              <p className="text-slate-300 leading-relaxed text-lg">
-                Born from a vision to revolutionize the music industry, Stafford Music represents the convergence of traditional artistry and modern innovation. Every composition we create is a testament to our commitment to excellence and our respect for the craft.
-              </p>
+              
+              <div className="space-y-12">
+                {/* Glenn Stafford */}
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="flex-shrink-0">
+                    <div className="w-48 h-48 bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-cyan-500/30 angular-cut overflow-hidden">
+                      <Image
+                        src="/Glenn.jpg"
+                        alt="Glenn Stafford"
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-cyan-300 mb-3">Glenn Stafford</h3>
+                    <div className="text-slate-300 leading-relaxed space-y-3">
+                      <p>
+                          Glenn Stafford is an award-winning AAA video game composer and audio professional, creating iconic music and soundscapes for games and immersive worlds. His work spans across decades of highly popular game franchises - including Warcraft, Starcraft, Diablo, Heroes of the Storm, Gorilla Tag and Orion Drift.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Aaron Stafford */}
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="flex-shrink-0">
+                    <div className="w-48 h-48 bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-cyan-500/30 angular-cut overflow-hidden">
+                      <Image
+                        src="/Aaron.jpg"
+                        alt="Aaron Stafford"
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-cyan-300 mb-3">Aaron Stafford</h3>
+                    <div className="text-slate-300 leading-relaxed space-y-3">
+                      <p>
+                        [Bio content for Aaron Stafford - Add his background, achievements, and musical journey here]
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Awards Section */}
+          <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-10 border border-cyan-500/20 angular-cut card-glow">
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
+            <div className="relative">
+              <h2 className="text-3xl font-bold text-cyan-400 mb-8 uppercase tracking-wide flex items-center gap-3">
+                <span className="w-2 h-8 bg-gradient-to-b from-cyan-500 to-blue-500" />
+                Awards & Recognition
+              </h2>
+              
+              <div className="space-y-4">
+                {[
+                  { category: 'Excellence in Audio', game: 'Diablo II', award: 'Game Developers Choice Award', year: 2001, status: 'Winner' },
+                  { category: 'Best Sound Editing', game: 'World of Warcraft', award: 'Golden Reel Award', year: 2005, status: 'Nominee' },
+                  { category: 'Best Original Score', game: 'Diablo III', award: 'HMMA Award', year: 2012, status: 'Winner' },
+                  { category: 'Best Original Music', game: 'Diablo III', award: 'BAFTA Games Award', year: 2013, status: 'Nominee' },
+                  { category: 'Best Original Score', game: 'World of Warcraft: Legion', award: 'HMMA Award', year: 2016, status: 'Nominee' },
+                  { category: 'Best Original Score', game: 'World of Warcraft: Battle For Azeroth', award: 'HMMA Award', year: 2018, status: 'Nominee' },
+                  { category: 'Best Original Score', game: 'World of Warcraft: The War Within', award: 'HMMA Award', year: 2024, status: 'Nominee' },
+                ].map((award, i) => (
+                  <div
+                    key={i}
+                    className="relative bg-gradient-to-r from-slate-800/50 to-slate-900/30 p-6 border border-cyan-500/20 hover:border-cyan-500/40 transition-all angular-cut group"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-start gap-3 mb-2">
+                          <div className={`flex-shrink-0 w-2 h-2 mt-2 rounded-full ${award.status === 'Winner' ? 'bg-yellow-400' : 'bg-cyan-400'}`} />
+                          <div>
+                            <h3 className="text-lg font-bold text-cyan-300">{award.category}</h3>
+                            <p className="text-slate-400 text-sm italic">{award.game}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-col md:items-end gap-1">
+                        <span className="text-slate-300 font-semibold">{award.award}</span>
+                        <div className="flex items-center gap-3">
+                          <span className="text-cyan-400 text-sm">{award.year}</span>
+                          <span className={`px-3 py-1 text-xs font-bold uppercase tracking-wider angular-cut ${
+                            award.status === 'Winner' 
+                              ? 'bg-gradient-to-r from-yellow-600 to-yellow-700 text-yellow-100' 
+                              : 'bg-gradient-to-r from-cyan-600/50 to-blue-600/50 text-cyan-100'
+                          }`}>
+                            {award.status}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Services Section */}
+          <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-10 border border-cyan-500/20 angular-cut card-glow">
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
+            <div className="relative">
+              <h2 className="text-3xl font-bold text-cyan-400 mb-8 uppercase tracking-wide flex items-center gap-3">
+                <span className="w-2 h-8 bg-gradient-to-b from-cyan-500 to-blue-500" />
+                Our Services
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Composing */}
+                <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-8 border border-cyan-500/30 angular-cut group hover:border-cyan-500/60 transition-all">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative">
+                    <div className="w-12 h-12 mb-4 bg-gradient-to-br from-cyan-500 to-blue-500 angular-cut flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-cyan-300 mb-3 uppercase tracking-wide">Composing</h3>
+                    <p className="text-slate-400 leading-relaxed">
+                      Original compositions crafted to bring your vision to life, from epic orchestral scores to intimate melodies.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Sound Design/Implementation */}
+                <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-8 border border-cyan-500/30 angular-cut group hover:border-cyan-500/60 transition-all">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative">
+                    <div className="w-12 h-12 mb-4 bg-gradient-to-br from-cyan-500 to-blue-500 angular-cut flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m0-7.072a5 5 0 00-1.414 1.414M12 12v.01" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-cyan-300 mb-3 uppercase tracking-wide">Sound Design & Implementation</h3>
+                    <p className="text-slate-400 leading-relaxed">
+                      Immersive audio experiences and seamless integration for games, films, and interactive media.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Voice Production */}
+                <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 p-8 border border-cyan-500/30 angular-cut group hover:border-cyan-500/60 transition-all">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative">
+                    <div className="w-12 h-12 mb-4 bg-gradient-to-br from-cyan-500 to-blue-500 angular-cut flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-cyan-300 mb-3 uppercase tracking-wide">Voice Production</h3>
+                    <p className="text-slate-400 leading-relaxed">
+                      Professional voice recording, direction, and post-production for characters, narration, and dialogue.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

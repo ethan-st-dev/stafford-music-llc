@@ -31,10 +31,10 @@ function AnimatedCube({
         if (mesh.material) {
           const material = (mesh.material as THREE.MeshStandardMaterial).clone();
           material.color.set(color);
-          material.metalness = 0.6;
-          material.roughness = 0.3;
+          material.metalness = 0.8;
+          material.roughness = 0.2;
           material.emissive = new THREE.Color(color);
-          material.emissiveIntensity = 0.2;
+          material.emissiveIntensity = 0.5;
           mesh.material = material;
         }
       }
@@ -95,10 +95,10 @@ function Scene() {
   
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <pointLight position={[10, 10, 10]} intensity={1.5} color="#06b6d4" />
-      <pointLight position={[-10, -10, -10]} intensity={1} color="#22d3ee" />
-      <pointLight position={[0, 10, -5]} intensity={0.8} color="#0ea5e9" />
+      <ambientLight intensity={1.0} />
+      <pointLight position={[10, 10, 10]} intensity={2.0} color="#06b6d4" />
+      <pointLight position={[-10, -10, -10]} intensity={1.5} color="#22d3ee" />
+      <pointLight position={[0, 10, -5]} intensity={1.2} color="#0ea5e9" />
       
       {cubes.map((cube, index) => (
         <AnimatedCube
@@ -115,7 +115,7 @@ function Scene() {
 
 export default function MusicVisualizer() {
   return (
-    <div className="fixed inset-0 opacity-60 pointer-events-none">
+    <div className="fixed inset-0 opacity-75 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 12], fov: 75 }}>
         <Scene />
       </Canvas>
