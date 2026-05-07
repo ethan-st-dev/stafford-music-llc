@@ -30,13 +30,13 @@ export default function About() {
             </div>
           </div>
 
-          {/* Composers Section */}
+          {/* Composer Section */}
           <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-10 border border-cyan-500/20 angular-cut card-glow">
             <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
             <div className="relative">
               <h2 className="text-3xl font-bold text-cyan-400 mb-8 uppercase tracking-wide flex items-center gap-3">
                 <span className="w-2 h-8 bg-gradient-to-b from-cyan-500 to-blue-500" />
-                The Composers
+                About Glenn Stafford
               </h2>
               
               <div className="space-y-12">
@@ -54,35 +54,33 @@ export default function About() {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-cyan-300 mb-3">Glenn Stafford</h3>
-                    <div className="text-slate-300 leading-relaxed space-y-3">
-                      <p>
-                          Glenn Stafford is an award-winning AAA video game composer and audio professional, creating iconic music and soundscapes for games and immersive worlds. His work spans across decades of highly popular game franchises - including Warcraft, Starcraft, Diablo, Heroes of the Storm, Gorilla Tag and Orion Drift.
+                    <div className="text-slate-300 leading-relaxed space-y-4">
+                      <p className="text-lg">
+                        Glenn Stafford is an award-winning AAA video game composer and audio professional, creating iconic music and soundscapes for games and immersive worlds.
+                      </p>
+                      <p className="text-lg">
+                        His work spans across decades of highly popular game franchises including <span className="text-cyan-300 font-semibold">Warcraft</span>, <span className="text-cyan-300 font-semibold">Starcraft</span>, <span className="text-cyan-300 font-semibold">Diablo</span>, and <span className="text-cyan-300 font-semibold">Heroes of the Storm</span>.
                       </p>
                     </div>
                   </div>
                 </div>
-
-                {/* Aaron Stafford */}
-                <div className="flex flex-col md:flex-row gap-8 items-start">
-                  <div className="flex-shrink-0">
-                    <div className="w-48 h-48 bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-cyan-500/30 angular-cut overflow-hidden">
-                      <Image
-                        src="/Aaron.jpg"
-                        alt="Aaron Stafford"
-                        width={192}
-                        height={192}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-cyan-300 mb-3">Aaron Stafford</h3>
-                    <div className="text-slate-300 leading-relaxed space-y-3">
+                
+                {/* Quote Section */}
+                <div className="relative mt-8 p-8 bg-gradient-to-br from-slate-800/50 to-slate-900/30 border-l-4 border-cyan-500">
+                  <div className="absolute top-4 left-4 text-6xl text-cyan-500/30 font-serif leading-none">"</div>
+                  <div className="relative pl-12 pr-8 py-4">
+                    <div className="text-slate-300 space-y-4 leading-relaxed">
                       <p>
-                        [Bio content for Aaron Stafford - Add his background, achievements, and musical journey here]
+                        I started at Blizzard Entertainment in 1993 as their first composer and sound designer, and I've had the rare opportunity to work with many incredible and talented people over the years who first created and have continued to evolve the Warcraft, Starcraft, Diablo, and Heroes of the Storm franchises. I've been most honored to be able to make significant and ongoing contributions to the music and sound for these worlds starting at their inception and for many years since.
+                      </p>
+                      <p>
+                        I have a keen dedication to creating stirring and iconic music and sound scapes, to enhance and support highly immersive game play environments, and to help infuse the player experience with impact and emotion.
+                      </p>
+                      <p>
+                        I have over 31 years experience creating music and sound for AAA games, with extensive background and experience in acoustic and electronic music composition, sound design, voice directing, casting, recording engineering, multiple game audio engine tools and technologies, industry standard DAWs, virtual instruments, audio hardware, software and plug-ins.
                       </p>
                     </div>
+                    <p className="mt-6 text-cyan-400 font-semibold text-right">— Glenn Stafford</p>
                   </div>
                 </div>
               </div>
