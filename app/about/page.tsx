@@ -1,6 +1,27 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 
 export default function About() {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const galleryImages = [
+    '/Gallery/1.JPG',
+    '/Gallery/2.JPG',
+    '/Gallery/3.JPG',
+    '/Gallery/4.JPG',
+    '/Gallery/5.JPG',
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
   return (
     <div className="relative min-h-screen bg-slate-950">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(0,212,255,0.1)_0%,_transparent_50%)]" />
@@ -202,6 +223,38 @@ export default function About() {
             </div>
           </div>
 
+          {/* Gallery Section */}
+          <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-10 border border-cyan-500/20 angular-cut card-glow">
+            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
+            <div className="relative">
+              <h2 className="text-3xl font-bold text-cyan-400 mb-8 uppercase tracking-wide flex items-center gap-3">
+                <span className="w-2 h-8 bg-gradient-to-b from-cyan-500 to-blue-500" />
+                Gallery
+              </h2>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {galleryImages.map((image, index) => (
+                  <button
+                    key={image}
+                    onClick={() => {
+                      setCurrentImageIndex(index);
+                      setIsGalleryOpen(true);
+                    }}
+                    className="relative aspect-square overflow-hidden border border-cyan-500/30 angular-cut hover:border-cyan-500/60 transition-all group"
+                  >
+                    <Image
+                      src={image}
+                      alt={`Gallery image ${index + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Contact Section */}
           <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-10 border border-cyan-500/20 angular-cut card-glow">
             <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
@@ -223,6 +276,52 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      {/* Gallery Modal */}
+      {isGalleryOpen && (
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+          <button
+            onClick={() => setIsGalleryOpen(false)}
+            className="absolute top-4 right-4 p-2 text-white hover:text-cyan-400 transition-colors z-10"
+            aria-label="Close Gallery"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
+          <button
+            onClick={prevImage}
+            className="absolute left-4 p-3 text-white hover:text-cyan-400 bg-slate-900/50 rounded-full transition-colors z-10"
+            aria-label="Previous Image"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <div className="max-w-6xl max-h-[90vh] px-16">
+            <img
+              src={galleryImages[currentImageIndex]}
+              alt={`Gallery image ${currentImageIndex + 1}`}
+              className="max-w-full max-h-[90vh] object-contain"
+            />
+            <p className="text-center text-slate-400 mt-4">
+              {currentImageIndex + 1} / {galleryImages.length}
+            </p>
+          </div>
+          
+          <button
+            onClick={nextImage}
+            className="absolute right-4 p-3 text-white hover:text-cyan-400 bg-slate-900/50 rounded-full transition-colors z-10"
+            aria-label="Next Image"
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
