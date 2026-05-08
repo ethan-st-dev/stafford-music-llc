@@ -4,6 +4,8 @@ import CreditsVisualizer from '../components/CreditsVisualizer';
 export default function Credits() {
   const glennCredits = [
     { title: 'World of Warcraft: Midnight', year: 2026, role: 'Composer', image: '/Boxart/World_of_Warcraft_Midnight_cover_art.jpg' },
+    { title: 'Orion Drift', year: 2026, role: 'Composer, Sound Designer', image: '/Boxart/OrionDrift.jpg' },
+    { title: 'Gorilla Tag', year: 2024, role: 'Composer, Sound Designer', image: '/Boxart/GorillaTag.jpg' },
     { title: 'World of Warcraft: The War Within', year: 2024, role: 'Composer', image: '/Boxart/World_of_Warcraft_The_War_Within_cover_art.jpg' },
     { title: 'World of Warcraft: Dragonflight', year: 2022, role: 'Composer', image: '/Boxart/World_of_Warcraft_Dragonflight_key_art.webp.png' },
     { title: 'World of Warcraft: Shadowlands', year: 2020, role: 'Composer', image: '/Boxart/Shadowlands.jpg' },
