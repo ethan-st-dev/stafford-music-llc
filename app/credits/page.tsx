@@ -3,31 +3,31 @@ import CreditsVisualizer from '../components/CreditsVisualizer';
 
 export default function Credits() {
   const glennCredits = [
-    { title: 'World of Warcraft: The War Within', year: 2024, role: 'Composer', image: '/boxart/wow-war-within.jpg' },
-    { title: 'World of Warcraft: Dragonflight', year: 2022, role: 'Composer', image: '/boxart/wow-dragonflight.jpg' },
-    { title: 'World of Warcraft: Shadowlands', year: 2020, role: 'Composer', image: '/boxart/wow-shadowlands.jpg' },
-    { title: 'World of Warcraft: Battle for Azeroth', year: 2018, role: 'Composer', image: '/boxart/wow-bfa.jpg' },
-    { title: 'World of Warcraft: Legion', year: 2016, role: 'Composer', image: '/boxart/wow-legion.jpg' },
-    { title: 'Heroes of the Storm', year: 2015, role: 'Composer', image: '/boxart/heroes-of-the-storm.jpg' },
-    { title: 'World of Warcraft: Warlords of Draenor', year: 2014, role: 'Composer', image: '/boxart/wow-warlords.jpg' },
-    { title: 'Hearthstone: Heroes of Warcraft', year: 2014, role: 'Composer', image: '/boxart/hearthstone.jpg' },
-    { title: 'World of Warcraft: Mists of Pandaria', year: 2012, role: 'Composer', image: '/boxart/wow-mists.jpg' },
-    { title: 'Diablo III', year: 2012, role: 'Composer', image: '/boxart/diablo3.jpg' },
-    { title: 'World of Warcraft: Cataclysm', year: 2010, role: 'Composer', image: '/boxart/wow-cataclysm.jpg' },
-    { title: 'StarCraft II: Wings of Liberty', year: 2010, role: 'Composer', image: '/boxart/starcraft2.jpg' },
-    { title: 'World of Warcraft: Wrath of the Lich King', year: 2008, role: 'Composer', image: '/boxart/wow-wrath.jpg' },
-    { title: 'World of Warcraft: The Burning Crusade', year: 2007, role: 'Composer', image: '/boxart/wow-tbc.jpg' },
-    { title: 'World of Warcraft', year: 2004, role: 'Composer, Sound Designer', image: '/boxart/wow-classic.jpg' },
-    { title: 'Warcraft III: The Frozen Throne', year: 2003, role: 'Composer, Sound Designer', image: '/boxart/warcraft3-tft.jpg' },
-    { title: 'Warcraft III: Reign of Chaos', year: 2002, role: 'Composer, Sound Designer', image: '/boxart/warcraft3.jpg' },
-    { title: 'Diablo II: Lord of Destruction', year: 2001, role: 'Composer, Sound Designer', image: '/boxart/diablo2-lod.jpg' },
-    { title: 'Diablo II', year: 2000, role: 'Composer, Sound Designer', image: '/boxart/diablo2.jpg' },
-    { title: 'StarCraft: Brood War', year: 1998, role: 'Composer, Sound Designer', image: '/boxart/starcraft-bw.jpg' },
-    { title: 'StarCraft', year: 1998, role: 'Composer, Sound Designer', image: '/boxart/starcraft.jpg' },
-    { title: 'Diablo', year: 1997, role: 'Composer, Sound Designer', image: '/boxart/diablo.jpg' },
-    { title: 'Warcraft II: Beyond the Dark Portal', year: 1996, role: 'Composer, Sound Designer', image: '/boxart/warcraft2-btdp.jpg' },
-    { title: 'Warcraft II: Tides of Darkness', year: 1995, role: 'Composer, Sound Designer', image: '/boxart/warcraft2.jpg' },
-    { title: 'Warcraft: Orcs & Humans', year: 1994, role: 'Composer, Sound Designer', image: '/boxart/warcraft1.jpg' },
+    { title: 'World of Warcraft: Midnight', year: 2026, role: 'Composer', image: '/Boxart/World_of_Warcraft_Midnight_cover_art.jpg' },
+    { title: 'World of Warcraft: The War Within', year: 2024, role: 'Composer', image: '/Boxart/World_of_Warcraft_The_War_Within_cover_art.jpg' },
+    { title: 'World of Warcraft: Dragonflight', year: 2022, role: 'Composer', image: '/Boxart/World_of_Warcraft_Dragonflight_key_art.webp.png' },
+    { title: 'World of Warcraft: Shadowlands', year: 2020, role: 'Composer', image: '/Boxart/Shadowlands.jpg' },
+    { title: 'World of Warcraft: Battle for Azeroth', year: 2018, role: 'Composer', image: '/Boxart/World_of_Warcraft_Battle_for_Azeroth.jpg' },
+    { title: 'World of Warcraft: Legion', year: 2016, role: 'Composer', image: '/Boxart/Legion-Standard_front_cover.jpg' },
+    { title: 'Heroes of the Storm', year: 2015, role: 'Composer', image: '/Boxart/HeroesofTheStorm.jpg' },
+    { title: 'World of Warcraft: Warlords of Draenor', year: 2014, role: 'Composer', image: '/Boxart/Warlords_of_Draenor_cover.jpg' },
+    { title: 'Hearthstone: Heroes of Warcraft', year: 2014, role: 'Composer', image: '/Boxart/Heartjstone.jpg' },
+    { title: 'World of Warcraft: Mists of Pandaria', year: 2012, role: 'Composer', image: '/Boxart/Mists-boxcover.jpg' },
+    { title: 'Diablo III', year: 2012, role: 'Composer', image: '/Boxart/Diablo_III_cover.jpg' },
+    { title: 'World of Warcraft: Cataclysm', year: 2010, role: 'Composer', image: '/Boxart/Cata-boxcover.png' },
+    { title: 'StarCraft II: Wings of Liberty', year: 2010, role: 'Composer', image: '/Boxart/StarCraft_II_-_Box_Art.jpg' },
+    { title: 'World of Warcraft: Wrath of the Lich King', year: 2008, role: 'Composer', image: '/Boxart/World_of_Warcraft_Wrath_of_the_Lich_King.png' },
+    { title: 'World of Warcraft', year: 2004, role: 'Composer, Sound Designer', image: '/Boxart/World_of_Warcraft.png' },
+    { title: 'Warcraft III: The Frozen Throne', year: 2003, role: 'Composer, Sound Designer', image: '/Boxart/Warcraftiii-frozen-throne-boxcover.jpg' },
+    { title: 'Warcraft III: Reign of Chaos', year: 2002, role: 'Composer, Sound Designer', image: '/Boxart/WarcraftIII.jpg' },
+    { title: 'Diablo II: Lord of Destruction', year: 2001, role: 'Composer, Sound Designer', image: '/Boxart/Diablo_II_-_Lord_of_Destruction_Coverart.jpg' },
+    { title: 'Diablo II', year: 2000, role: 'Composer, Sound Designer', image: '/Boxart/Diablo_II_Coverart.jpg' },
+    { title: 'StarCraft: Brood War', year: 1998, role: 'Composer, Sound Designer', image: '/Boxart/BroodWar.jpg' },
+    { title: 'StarCraft', year: 1998, role: 'Composer, Sound Designer', image: '/Boxart/Starcraft.png' },
+    { title: 'Diablo', year: 1997, role: 'Composer, Sound Designer', image: '/Boxart/Diablo.jpg' },
+    { title: 'Warcraft II: Beyond the Dark Portal', year: 1996, role: 'Composer, Sound Designer', image: '/Boxart/Warcraftii-beyond-the-dark-portal-cover-art.jpg' },
+    { title: 'Warcraft II: Tides of Darkness', year: 1995, role: 'Composer, Sound Designer', image: '/Boxart/Warcraft-2-Tides-Of-Darkness-Pc.jpg' },
+    { title: 'Warcraft: Orcs & Humans', year: 1994, role: 'Composer, Sound Designer', image: '/Boxart/Warcraft.jpg' },
   ];
 
   return (
@@ -60,20 +60,13 @@ export default function Credits() {
                     
                     {/* Image Container */}
                     <div className="relative bg-gradient-to-br from-slate-700 to-slate-800 overflow-hidden" style={{ aspectRatio: '3 / 4' }}>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-full h-full bg-slate-800/50 flex items-center justify-center text-cyan-500/30 text-xs p-4 text-center">
-                          Box Art Placeholder
-                          <br />
-                          {credit.image}
-                        </div>
-                        {/* Uncomment when images are ready:
+                      <div className="absolute inset-0">
                         <Image
                           src={credit.image}
                           alt={credit.title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
-                        */}
                       </div>
                       
                       {/* Year Badge */}
