@@ -46,29 +46,14 @@ export default function Listen() {
             description="Even more tracks to discover"
           />
         </div>
-
-        {/* Heroes of the Storm */}
+        {/* Third Playlist */}
         <div className="mb-10">
-          <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 p-8 border border-cyan-500/20 angular-cut card-glow">
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
-            <div className="relative">
-              <h3 className="text-2xl font-bold text-cyan-400 mb-4 uppercase tracking-wide flex items-center gap-3">
-                <span className="w-2 h-6 bg-gradient-to-b from-cyan-500 to-blue-500" />
-                Heroes of the Storm
-              </h3>
-              <iframe 
-                data-testid="embed-iframe" 
-                style={{ borderRadius: '12px' }} 
-                src="https://open.spotify.com/embed/album/3MEDWTpUo2qYmGDWBvMF49?utm_source=generator" 
-                width="100%" 
-                height="352" 
-                frameBorder="0" 
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"
-              />
-            </div>
-          </div>
+          <ListPlayer 
+            playlistId="3MEDWTpUo2qYmGDWBvMF49"
+            title="Heroes of the Storm"
+            description="Even more tracks to discover"
+            type="album"
+          />
         </div>
 
         {/* Streaming Platforms */}

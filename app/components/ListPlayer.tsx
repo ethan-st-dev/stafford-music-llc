@@ -2,9 +2,11 @@ interface ListPlayerProps {
   playlistId: string;
   title?: string;
   description?: string;
+  type?: string; // 'playlist' or 'album', default is 'playlist'
 }
 
-export default function ListPlayer({ playlistId, title, description }: ListPlayerProps) {
+export default function ListPlayer({ playlistId, title, description, type = 'playlist' }: ListPlayerProps) {
+    
   return (
     <div className="relative bg-gradient-to-b from-slate-900 to-slate-950 border border-cyan-500/20 hover:border-cyan-500/50 transition-all card-glow angular-cut overflow-hidden p-6">
       <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
@@ -25,7 +27,7 @@ export default function ListPlayer({ playlistId, title, description }: ListPlaye
           <iframe
             data-testid="embed-iframe"
             style={{ borderRadius: '12px' }}
-            src={`https://open.spotify.com/embed/playlist/${playlistId}?utm_source=generator`}
+            src={`https://open.spotify.com/embed/${type}/${playlistId}?utm_source=generator`}
             width="100%"
             height="352"
             loading="eager"
