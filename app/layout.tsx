@@ -50,13 +50,13 @@ export default function RootLayout({
                 <Link href="/contact" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm uppercase tracking-wide">Contact</Link>
               </div>
               <p className="text-center text-slate-500 text-sm uppercase tracking-wider">
-                <Link 
-                  href="/" 
+                {/* <Link 
+                  href="/experience" 
                   className="inline-flex items-center group select-none mr-1 font-mono hover-static-glitch transition-colors duration-150"
                 >
                   @
-                </Link>
-                {new Date().getFullYear()} Stafford Music LLC. All rights reserved.
+                </Link> */}
+                @{new Date().getFullYear()} Stafford Music LLC. All rights reserved.
               </p>
             </div>
           </div>
