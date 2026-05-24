@@ -8,11 +8,13 @@ export default function About() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const galleryImages = [
-    '/Gallery/1.JPG',
-    '/Gallery/2.JPG',
-    '/Gallery/3.JPG',
-    '/Gallery/4.JPG',
-    '/Gallery/5.JPG',
+    '/Gallery/11.JPG',
+    '/Gallery/12.JPG',
+    '/Gallery/13.JPG',
+    '/Gallery/14.JPG',
+    '/Gallery/15.JPG',
+    '/Gallery/16.JPG',
+    '/Gallery/17.JPG',
   ];
 
   const nextImage = () => {
