@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next"; // 1. Added Viewport type
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import Navigation from "./components/Navigation";
@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   description: "Stafford Music - Your music destination",
 };
 
+// 2. Add the viewport export to control browser overscroll color
+export const viewport: Viewport = {
+  themeColor: "#050810;", // Matches Tailwind's slate-950 to blend perfectly
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,9 +32,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      // 3. Added bg-slate-950 here to fix the top overscroll
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-slate-950`}
     >
-      <body className="min-h-full flex flex-col">
+      {/* 4. Added bg-slate-950 and text-slate-100 here to fix bottom overscroll */}
+      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100">
         <header className="relative border-b border-cyan-500/20 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 backdrop-blur-sm z-50">
           <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent pointer-events-none" />
           <Navigation />
@@ -50,12 +57,6 @@ export default function RootLayout({
                 <Link href="/contact" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm uppercase tracking-wide">Contact</Link>
               </div>
               <p className="text-center text-slate-500 text-sm uppercase tracking-wider">
-                {/* <Link 
-                  href="/experience" 
-                  className="inline-flex items-center group select-none mr-1 font-mono hover-static-glitch transition-colors duration-150"
-                >
-                  @
-                </Link> */}
                 @{new Date().getFullYear()} Stafford Music LLC. All rights reserved.
               </p>
             </div>

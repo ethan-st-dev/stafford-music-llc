@@ -117,3 +117,9 @@ body {
   color: #22d3ee; /* Tailwind's cyan-400 */
   animation: static-glitch 0.4s steps(2) infinite;
 }
+
+html {
+  /* This colors the top and bottom overscroll areas */
+  background-color: #050810;
+}
+
