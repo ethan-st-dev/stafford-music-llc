@@ -21,7 +21,7 @@ export async function POST(request: Request) {
 
     // Send the email via Resend
     const { data, error } = await resend.emails.send({
-      from: 'Stafford Music Website <contact@staffordmusicllc.com>', // Must be your Resend-verified domain
+      from: 'Stafford Music Website <contact@form.staffordmusicllc.com>', // Must be your Resend-verified domain
       to: ['staffordmusicllc@gmail.com'], 
       replyTo: email, // Direct reply back to the sender
       subject: emailSubject,
