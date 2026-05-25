@@ -59,6 +59,9 @@ export default function RootLayout({
               <p className="text-center text-slate-500 text-sm uppercase tracking-wider">
                 @{new Date().getFullYear()} Stafford Music LLC. All rights reserved.
               </p>
+              <p className="max-w-2xl text-center text-slate-600 text-xs leading-relaxed mt-2 border-t border-slate-900">
+                 Cinematic assets, audio tracks, and game media displayed are the trademarks and copyrights of Blizzard Entertainment®.
+              </p>
             </div>
           </div>
         </footer>
