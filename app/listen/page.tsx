@@ -66,15 +66,17 @@ export default function Listen() {
             </h2>
             <div className="flex flex-wrap gap-4">
               {[
-                { name: 'Spotify', color: 'from-green-600 to-green-700' },
-                { name: 'Apple Music', color: 'from-red-600 to-pink-600' },
-                { name: 'SoundCloud', color: 'from-orange-600 to-orange-700' },
-                { name: 'YouTube Music', color: 'from-red-600 to-red-700' },
+                { name: 'Spotify', color: 'from-green-600 to-green-700', link: 'https://open.spotify.com/artist/0QHPo4EDeIiHCs37RRfhCM' },
+                { name: 'Apple Music', color: 'from-red-600 to-pink-600', link: 'https://music.apple.com/us/artist/glenn-stafford/288872856' },
+                //{ name: 'SoundCloud', color: 'from-orange-600 to-orange-700'  },
+                { name: 'YouTube Music', color: 'from-red-600 to-red-700', link: 'https://music.youtube.com/search?q=glenn+stafford'}
               ].map((platform) => (
                 <a
                   key={platform.name}
-                  href="#"
+                  href={platform.link}
                   className={`group relative px-8 py-3 bg-gradient-to-r ${platform.color} text-white font-bold uppercase text-sm tracking-wider angular-cut overflow-hidden`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                 >
                   <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                   <span className="relative z-10">{platform.name}</span>
