@@ -22,15 +22,31 @@ export default function Contact() {
     e.preventDefault();
     setStatus('submitting');
     
-    // Simulate form submission - replace with actual API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Something went wrong.');
+      }
+
       setStatus('success');
+      // Reset form fields on success
       setFormData({ name: '', email: '', subject: '', message: '' });
       
-      // Reset success message after 3 seconds
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1000);
+      // Reset success banner status after 4 seconds
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('error');
+    }
   };
 
   return (
